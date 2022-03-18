@@ -1,13 +1,11 @@
-#unfinished
-import requests 
-from bs4 import BeautifulSoup
+import requests
+import json
 
-search="Clima em São Palo"
+cidade = input("Escreva a sua cidade")
 
-url=f"https://www.climatempo.com.br/previsao-do-tempo/15-dias/cidade/558/saopaulo-sp"
+requisicao = requests.get('https://api.openweathermap.org/data/2.5/weather?q='+cidade+'&appid=941329145b3169e765ace5e77ff936d4')
+                     
+print(requisicao.text)
 
-r=requeust.get(url)
-s=BeautifulSop(r.text,"html.parser")
 
-update=s.find("div",class_="BNeawe").text
-print(update)
+#Some cities cannot be found
